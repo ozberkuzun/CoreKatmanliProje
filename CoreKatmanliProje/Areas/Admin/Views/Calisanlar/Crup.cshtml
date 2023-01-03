@@ -1,0 +1,42 @@
+﻿@model CoreKatmanlıProjeModels.ViewModels.CalisanlarVM
+
+<h2>Calisanlar@(Model.Calisanlar.CalisanId<=0?"Add":"Edit")</h2>
+<form method="post" enctype="multipart/form-data">
+<input asp-for="Calisanlar.CalisanId" type="hidden"/>
+<input asp-for="Calisanlar.Fotograf" type="hidden"/>
+@if (@Model!=null)
+    {
+        <div class="col-6">
+            <img src="@Model.Calisanlar.Fotograf" width="250px" />
+        </div>
+    }
+    <div class="rom my-1">
+        <label asp-for="Calisanlar.CalisanAd"></label>
+        <input asp-for="Calisanlar.CalisanAd" class="form-control"/>
+    </div>
+    <div class="rom my-1">
+        <label asp-for="Calisanlar.CalisanYas"></label>
+        <input asp-for="Calisanlar.CalisanYas" class="form-control"/>
+    </div>
+     <div class="rom my-1">
+        <label asp-for="Calisanlar.Maas"></label>
+        <input asp-for="Calisanlar.Maas" class="form-control"/>
+    </div>
+     <div class="rom my-1">
+        <label asp-for="Calisanlar.DepartmanId"></label>
+        <select asp-for="Calisanlar.DepartmanId" asp-items="@Model.DepartmanlarList" class="form-control">
+            <option disabled selected>Departman Seçin</option>
+        </select>
+    </div>
+
+     <div class="row my-1">
+        <label asp-for="Calisanlar.Fotograf"></label>
+        <input type="file" id="file" name="file" accept="image/*" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        @(Model.Calisanlar.CalisanId <= 0? "Add" : "Edit")
+    </button>
+
+
+</form>

@@ -1,0 +1,49 @@
+﻿@using CoreKatmanlıProjeModels
+@model IEnumerable<Calisanlar>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2> Calisanlar List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Calisanlar" asp-action="Crup" class="btn btn-primary">
+                <span>Yeni Calisan Ekle</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped my-2">
+            <thead>
+               <tr>
+                   <th>Fotoğraflar</th>
+                   <th>Çalışan Ad</th>
+                   <th>Çalışan Yas</th>
+                   <th>Maaş</th>
+                   <th>Departmanlar</th>
+
+                   <th>
+
+                   </th>
+               </tr>
+            </thead>
+            <tbody>
+                @foreach(var calisanlar in Model)
+                {
+                    <tr>
+                        <td><img src="@calisanlar.Fotograf" width="80px" /></td>
+
+                            
+                            <td>@calisanlar.CalisanAd</td>
+                            <td>@calisanlar.CalisanYas</td>
+                            <td>@calisanlar.Maas</td>
+                            <td>@calisanlar.DepartmanId</td>
+                        <td>
+                            <a asp-controller="Calisanlar" asp-action="Crup" asp-route-id="@calisanlar.CalisanId" class="btn btn-primary">Edit</a>
+                            <a asp-controller="Calisanlar" asp-action="Delete" asp-route-id="@calisanlar.CalisanId" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

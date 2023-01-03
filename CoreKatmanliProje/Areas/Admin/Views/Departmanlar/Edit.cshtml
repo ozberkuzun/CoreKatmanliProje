@@ -1,0 +1,16 @@
+﻿@model CoreKatmanlıProjeModels.Departmanlar
+<form method="post">
+    <h2>Departman Güncelle</h2>
+    <div class="row">
+        <label asp-for="DepartmanAd"></label>
+        <input asp-for="DepartmanAd" class="form-control" />
+    </div>
+    <div class="row">
+        <label asp-for="ToplamCalisan"></label>
+        <input asp-for="ToplamCalisan" class="form-control" />
+    </div>
+    <div class="row my-2">
+        <div class="col-6"><button type="submit" class="btn btn-primary">Yenile</button></div>
+        <div class="col-6"><a asp-controller="Departmanlar" asp-action="Index" class="btn btn-primary">Departman Listesine Dön</a></div>
+    </div>
+</form>
